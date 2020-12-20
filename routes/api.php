@@ -36,7 +36,7 @@ Route::prefix('clientes')->group(function () {
 });
 
 Route::prefix('misiones')->group(function () {
-	Route::post('/encargo/',[MisionController::class,"realizarEncargo"]);
+	Route::post('/encargo',[MisionController::class,"realizarEncargo"]);
 	Route::post('/editar/{id}',[MisionController::class,"editarMision"]);
 	Route::get('/',[MisionController::class,"listaMisiones"]);
 	Route::get('/ver/{id}',[MisionController::class,"verMision"]);
@@ -44,7 +44,7 @@ Route::prefix('misiones')->group(function () {
 });
 
 Route::prefix('asignar')->group(function () {
-	Route::post('/',[AsignacionController::class,"asignar"]);
+	Route::post('/registrar',[AsignacionController::class,"asignarNinja"]);
 });
 
 Route::prefix('usuarios')->group(function () {

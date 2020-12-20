@@ -91,16 +91,16 @@ class ClienteController extends Controller
     				"id" => $mision->id,
     				"fecha" => $mision->created_at,
     				"urgente" => $mision->urgente,
-    				"estado" => $mision->estado
+    				"estado" => $mision->estado,
     				"pago" => $mision->pago
     			];
     		}
 
     		$datosCliente = [
     			"id" => $cliente->id,
-    			"habilidades" => $cliente->habilidades,
-    			"rango" => $cliente->rango,
-    			"estado" => $cliente->estado
+    			"codigo_cliente" => $cliente->codigo_cliente,
+    			"nombre" => $cliente->nombre,
+    			"vip" => $cliente->vip,
     			"misiones" => $misiones
     		];
 
@@ -118,7 +118,7 @@ class ClienteController extends Controller
 
     	foreach ($clientes as $cliente) {
     		
-    		$resultado = [
+    		$resultado[] = [
     			"id" => $cliente->id,
     			"codigo_cliente" => $cliente->codigo_cliente,
     			"vip" => $cliente->vip,

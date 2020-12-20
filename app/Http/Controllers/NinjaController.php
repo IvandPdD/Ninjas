@@ -96,7 +96,7 @@ class NinjaController extends Controller
     			"id" => $ninja->id,
     			"habilidades" => $ninja->habilidades,
     			"rango" => $ninja->rango,
-    			"estado" => $ninja->estado
+    			"estado" => $ninja->estado,
     			"misionesAsignadas" => $misionesAsignadas
     		];
 

@@ -15,9 +15,9 @@ class CreateMisionsTable extends Migration
     {
         Schema::create('misions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cliente_id');
+            $table->foreignId('cliente_id')->constrained()->nullable();
 
-            $table->text('descripción');
+            $table->text('descripcion');
             $table->unsignedInteger('ninjas_estimados');
             $table->boolean('urgente');
             $table->enum('estado', ['Pendiente', 'En curso', 'Completado', 'Fallado'])->default('Pendiente');

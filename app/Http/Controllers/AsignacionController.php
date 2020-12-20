@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Asignacion;
+use App\Models\Mision;
+
 class AsignacionController extends Controller
 {
-     public function asignar(Request $request){
+     public function asignarNinja(Request $request){
 
 		$respuesta = "";
 
@@ -20,7 +23,7 @@ class AsignacionController extends Controller
 			$asignacion->ninja_id = $datos->ninja_id;
 			$asignacion->mision_id = $datos->mision_id;
 
-    		$mision = Mission::find($asignacion->mision_id);
+    		$mision = Mision::find($asignacion->mision_id);
 
 			$mision->estado = 'En Curso';
 

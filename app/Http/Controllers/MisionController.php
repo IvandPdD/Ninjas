@@ -19,9 +19,10 @@ class MisionController extends Controller
 
     		$mision = new Mision();
 
+    		$mision->cliente_id = $datos->cliente_id;
     		$mision->descripcion = $datos->descripcion;
     		$mision->ninjas_estimados = $datos->ninjas_estimados;
-    		$mision->prioridad = $datos->prioridad;
+    		$mision->urgente = $datos->urgente;
     		$mision->estado = $datos->estado;
     		$mision->pago = $datos->pago;
     		$mision->fecha_finalizacion = $datos->fecha_finalizacion;
@@ -102,10 +103,10 @@ class MisionController extends Controller
     		
     		$resultado[] = [
     			"id" => $mision->id,
-    			"nombre" => $mision->nombre,
     			"fecha_registro" => $mision->created_at,
-    			"rango" => $mision->rango,
-    			"estado" => $mision->estado
+    			"prioridad" => $mision->urgente,
+    			"estado" => $mision->estado,
+    			"codigo_cliente" => $mision->cliente_id
     		];
     	}
 
@@ -130,17 +131,19 @@ class MisionController extends Controller
 
     		$datosMision = [
     			"id" => $mision->id,
-    			"habilidades" => $mision->habilidades,
-    			"rango" => $mision->rango,
-    			"estado" => $mision->estado
-    			"misiones" => $ninjasAsignados
+    			"cliente_id" => $mision->cliente_id,
+    			"descripcion" => $mision->descripcion,
+    			"ninjas_estimados" => $mision->ninjas_estimados,
+    			"urgente" => $mision->urgente,
+    			"estado" => $mision->estado,
+    			"pago" => $mision->pago,
+    			"ninjas" => $ninjasAsignados
     		];
 
     		return response()->json($datosMision);
     	}
 
-    	return response("Cliente no encontrado");
-    }
+    	return response("Mision no encontrada");
     }
 
     public function filtroMision(){
